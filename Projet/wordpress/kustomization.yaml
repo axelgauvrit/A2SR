@@ -1,0 +1,9 @@
+# generate secret for files 
+secretGenerator:
+- name: mysql-pass
+  literals:
+  - password=Axellilian85!
+# List des resources Deploy 
+resources:
+  - mysql-deployment.yaml
+  - wordpress-deployment.yaml

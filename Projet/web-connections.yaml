@@ -1,0 +1,19 @@
+# Create pod to DDOS my application wordpress
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-connections
+spec:
+  replicas: 20
+  selector:
+    matchLabels:
+      app: web-connections
+  template:
+    metadata:
+      labels:
+        app: web-connections
+    spec:
+      containers:
+      - name: web-connections
+        image: nginx
+        command: ["/bin/sh", "-c", "while true; do curl -s http://172.28.4.112 >/dev/null; sleep 1; done"]
